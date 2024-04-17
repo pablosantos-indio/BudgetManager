@@ -1,4 +1,3 @@
-{{-- resources/views/categories/index.blade.php --}}
 @extends('layouts.app')
 
 @section('content')
@@ -25,7 +24,7 @@
                     <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display:inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
                     </form>
                 </td>
             </tr>

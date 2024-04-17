@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['category_id', 'amount', 'description', 'month', 'year'];
+
+    // Expense belongs to Category
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }
