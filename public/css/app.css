@@ -1,0 +1,19 @@
+/* public/css/app.css */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn {
+    margin-right: 10px;
+}

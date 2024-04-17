@@ -13,6 +13,11 @@ sudo apt update
 sudo apt install php8.3 composer php8.3-xml php8.3-curl php8.3-dom php8.3-intl php8.3-mbstring php8.3-zip -y
 ```
 
+### Install MySQL PDO Extension for PHP
+```
+sudo apt-get install php8.3-mysql
+```
+
 ### Create New Project and Install Sail
 ```
 composer create-project laravel/laravel BudgetManager "10.*"
@@ -38,20 +43,29 @@ sail stop
 
 # Stop and remove containers
 sail down
+
+# Restart Web Server (when using Docker)
+sail down && sail build --no-cache && sail up -d
+```
+
+## Verify PHP Extensions
+```
+# Check if PDO MySQL extension is enabled
+php -m | grep pdo_mysql
 ```
 
 ## Modules
 
 ### Budget Categories
 - **Overview**: Provides a table displaying registered categories.
-- **Functionalities**: 
+- **Functionalities**:
   - "ADD CATEGORY" button for new entries.
   - Each entry includes "Title", "Budget", and "edit" options.
   - A message "No Categories" is displayed if no entries exist.
 
 ### Expenses
 - **Overview**: Shows "Expenses - [Current Month] [Current Year]" and includes month navigation.
-- **Functionalities**: 
+- **Functionalities**:
   - Displays budget categories with expenses listed for the current month.
   - Progress bars indicate budget utilization (Green, Yellow, Red).
   - Options to add, edit, and delete expenses, with server-side validation.
