@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <img src="/path_to_logo/logo.png" alt="Logo" class="logo">
+            <img src="{{ asset('images/logo.jpg') }}" alt="Logo">
             <nav>
                 <ul>
                     <li><a href="{{ route('categories.index') }}">Budget Categories</a></li>

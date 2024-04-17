@@ -20,8 +20,8 @@
                 <td>{{ $category->budget }}</td>
                 <td>{{ $category->year }}</td>
                 <td>
-                    <a href="{{ route('categories.edit', $category) }}" class="btn btn-info">Edit</a>
-                    <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display:inline">
+                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info">Edit</a>
+                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display:inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>

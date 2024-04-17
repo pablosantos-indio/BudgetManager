@@ -42,7 +42,7 @@ class ExpenseController extends Controller
         $request->validate([
             'category_id' => 'required|exists:categories,id',
             'amount' => 'required|numeric',
-            'description' => 'required|string',
+            'description' => 'required|string|max:255',
             'month' => 'required|integer',
             'year' => 'required|integer'
         ]);
