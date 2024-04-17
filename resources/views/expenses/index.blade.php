@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h1>Expenses - {{ now()->format('F Y') }}</h1>
+    <h1>Expenses - {{ $currentMonth }} {{ $currentYear }}</h1>
     <a href="{{ route('expenses.create') }}" class="btn btn-primary">Add Expense</a>
+    <a href="{{ route('expenses.index', ['month' => $previousMonth, 'year' => $previousYear]) }}" class="btn btn-secondary">Previous Month</a>
+    <a href="{{ route('expenses.index', ['month' => $nextMonth, 'year' => $nextYear]) }}" class="btn btn-secondary">Next Month</a>
 
     @foreach ($categories as $category)
     <div class="mt-4">
@@ -11,18 +13,16 @@
         <div class="progress">
             @php
             $totalSpent = $category->expenses->sum('amount');
-            $percentSpent = min(100, ($totalSpent / $category->budget) * 100);
+            $percentSpent = ($totalSpent / $category->budget) * 100;
             $progressClass = $percentSpent < 100 ? 'bg-success' : ($percentSpent == 100 ? 'bg-warning' : 'bg-danger');
             @endphp
-            <div class="progress-bar {{ $progressClass }}" role="progressbar" style="width: {{ $percentSpent }}%" aria-valuenow="{{ $percentSpent }}" aria-valuemin="0" aria-valuemax="100">{{ number_format($percentSpent, 2) }}%</div>
+            <div class="progress-bar {{ $progressClass }}" role="progressbar" style="width: {{ $percentSpent }}%" aria-valuenow="{{ $percentSpent }}" aria-valuemin="0" aria-valuemax="100">{{ number_format($totalSpent, 2) }} of {{ number_format($category->budget, 2) }}</div>
         </div>
         <table class="table">
             <thead>
                 <tr>
                     <th>Description</th>
                     <th>Amount</th>
-                    <th>Month</th>
-                    <th>Year</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -31,8 +31,6 @@
                 <tr>
                     <td>{{ $expense->description }}</td>
                     <td>{{ number_format($expense->amount, 2) }}</td>
-                    <td>{{ $expense->month }}</td>
-                    <td>{{ $expense->year }}</td>
                     <td>
                         <a href="{{ route('expenses.edit', $expense->id) }}" class="btn btn-info">Edit</a>
                         <form action="{{ route('expenses.destroy', $expense->id) }}" method="POST" style="display:inline">

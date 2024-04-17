@@ -30,7 +30,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="4">No categories</td>
+                <td colspan="4">No categories found</td>
             </tr>
             @endforelse
         </tbody>

@@ -21,6 +21,10 @@
                 @endforeach
             </select>
         </div>
+        <div class="mb-3">
+            <label for="month" class="form-label">Month</label>
+            <input type="number" class="form-control" id="month" name="month" value="{{ now()->month }}" required>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         <a href="{{ route('expenses.index') }}" class="btn btn-secondary">Back</a>
     </form>

@@ -1,19 +1,140 @@
-/* public/css/app.css */
+/* Global Styles */
 body {
+    background-color: #101827;
+    color: #b0b6bd;
     font-family: 'Arial', sans-serif;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    padding-top: 20px;
+/* Navigation Styles */
+.navbar {
+    background-color: #1f2937;
+    padding: 1rem;
 }
 
+.navbar a {
+    color: #969ca9;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.navbar a.active, .navbar a:hover {
+    color: #3b82f6;
+}
+
+/* Button Styles */
+.btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #e1e2e6;
+    color: #1f2937;
+}
+
+.btn-secondary {
+    background-color: #0f3460;
+    color: #e6e6e6;
+}
+
+/* Form Styles */
+.form-control {
+    background-color: #16213e;
+    color: #e6e6e6;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+/* Progress Bar Styles */
+.progress {
+    background-color: #262c41;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Progress Bar Styles */
+.progress {
+    background-color: #262c41;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1rem;
+    border-radius: 5px;
+    transition: width 0.6s ease;
+    color: #000; /* text color inside progress bar */
+    font-weight: bold; /* if you want the text to be bold */
+}
+
+.bg-success {
+    background-color: #28a745; /* or any green color you prefer */
+}
+
+.bg-warning {
+    background-color: #ffc107; /* or any yellow color you prefer */
+}
+
+.bg-danger {
+    background-color: #dc3545; /* or any red color you prefer */
+}
+
+/* Table Styles */
 .table {
     width: 100%;
     margin-top: 20px;
 }
 
-.btn {
-    margin-right: 10px;
+.table th, .table td {
+    padding: 0.5rem;
+    color: #e6e6e6;
+    border-bottom: 1px solid #0f3460;
+}
+
+/* Layout and Container */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/* Headings and Titles */
+h1, h2, h3, h4, h5, h6 {
+    color: #e5e7eb;
+}
+
+/* Links */
+a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
 }
