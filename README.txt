@@ -56,6 +56,11 @@ sail down
   - Progress bars indicate budget utilization (Green, Yellow, Red).
   - Options to add, edit, and delete expenses, with server-side validation.
 
+## Install these extensions on VSCode:
+- Laravel Blade Snippets extension;
+- laravel Blade formatter;
+- laravel goto view
+
 ## Development and Operation
 This section includes all necessary commands to set up and manage the application environment, specifically tailored for development purposes using Laravel Sail. The selected services during the `sail:install` (MySQL, Redis, Meilisearch, Selenium) are crucial for the application's full functionality.
 
