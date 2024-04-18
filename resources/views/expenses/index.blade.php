@@ -7,7 +7,7 @@
     <a href="{{ route('expenses.index', ['month' => $previousMonth, 'year' => $previousYear]) }}" class="btn btn-secondary">Previous Month</a>
     <a href="{{ route('expenses.index', ['month' => $nextMonth, 'year' => $nextYear]) }}" class="btn btn-secondary">Next Month</a>
 
-    @foreach ($categories as $category)
+    @forelse ($categories as $category)
     <div class="mt-4">
         <h3>{{ $category->title }} (Budget: {{ number_format($category->budget, 2) }})</h3>
         <div class="progress">
@@ -42,12 +42,16 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5">No expenses for this category</td>
+                    <td colspan="3">No expenses for this category</td>
                 </tr>
                 @endforelse
             </tbody>
         </table>
     </div>
-    @endforeach
+    @empty
+    <div class="mt-4">
+        <h4>No categories found</h4>
+    </div>
+    @endforelse
 </div>
 @endsection
